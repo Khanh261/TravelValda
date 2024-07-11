@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageActivity">
+
+    <!-- Thanh tìm kiếm -->
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Tìm kiếm khách sạn"
+        android:padding="12dp"
+        android:background="@drawable/search_bar_background"
+        android:drawableLeft="@drawable/ic_search" />
+
+    <!-- Danh sách các khách sạn nổi tiếng -->
+    <TextView
+        android:id="@+id/popular_hotels_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_bar"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Các khách sạn nổi tiếng"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popular_hotels_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/popular_hotels_title"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal" />
+
+    <!-- Danh sách các khách sạn có thể bạn sẽ thích -->
+    <TextView
+        android:id="@+id/recommended_hotels_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popular_hotels_list"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Có thể bạn sẽ thích"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recommended_hotels_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/recommended_hotels_title"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal" />
+
+    <!-- Menu dưới cùng -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home"
+            android:padding="16dp"
+            android:contentDescription="Home" />
+
+        <ImageView
+            android:id="@+id/nav_booking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_booking"
+            android:padding="16dp"
+            android:contentDescription="Booking" />
+
+        <ImageView
+            android:id="@+id/nav_watchlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_watchlist"
+            android:padding="16dp"
+            android:contentDescription="Watchlist" />
+
+        <ImageView
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_profiles"
+            android:padding="16dp"
+            android:contentDescription="Profile" />
+    </LinearLayout>
+</RelativeLayout>
