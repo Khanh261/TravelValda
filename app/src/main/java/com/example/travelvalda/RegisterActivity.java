@@ -19,11 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private EditText emailEditText, passwordEditText;
-    private Button loginButton;
-    private TextView forgotPasswordTextView, registerTextView;
+    private EditText usernameEditText, emailEditText, passwordEditText;
+    private Button registerButton;
+    private TextView loginLinkTextView;
 
     private FirebaseAuth mAuth;
     private AppDatabase db;
@@ -31,61 +31,60 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
         db = MyApplication.getDatabase();
 
+        usernameEditText = findViewById(R.id.username);
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.btn_login);
-        forgotPasswordTextView = findViewById(R.id.forgot_password);
-        registerTextView = findViewById(R.id.register);
+        registerButton = findViewById(R.id.btn_register);
+        loginLinkTextView = findViewById(R.id.login_link);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser();
+                registerUser();
             }
         });
 
-        registerTextView.setOnClickListener(new View.OnClickListener() {
+        loginLinkTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(registerIntent);
-            }
-        });
-
-        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Xử lý sự kiện quên mật khẩu tại đây
+                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+                finish();
             }
         });
     }
 
-    private void loginUser() {
+    private void registerUser() {
+        String username = usernameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d("Login", "signInWithEmail:success");
-                            Toast.makeText(LoginActivity.this, "Authentication successful.",
+                            Log.d("Register", "createUserWithEmail:success");
+                            Toast.makeText(RegisterActivity.this, "Registration successful.",
                                     Toast.LENGTH_SHORT).show();
-                            // Xử lý thành công đăng nhập
+                            User user = new User(username, email, password);
+                            db.userDao().insert(user);
+                            Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(loginIntent);
+                            finish();
                         } else {
-                            Log.w("Login", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Log.w("Register", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(RegisterActivity.this, "Registration failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

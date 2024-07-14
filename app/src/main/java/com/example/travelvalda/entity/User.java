@@ -11,4 +11,13 @@ public class User {
     public String password;
     public String email;
     public String userType;
+
+    public User() {
+    }
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.userType = "user";
+    }
 }

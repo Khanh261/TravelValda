@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1087548028768",
+    "project_id": "travelvalda",
+    "storage_bucket": "travelvalda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087548028768:android:d4ab23cac1e03f21b01005",
+        "android_client_info": {
+          "package_name": "com.example.travelvalda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgCAinJegjHzqr8myzgnpVldONY2q_aCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
