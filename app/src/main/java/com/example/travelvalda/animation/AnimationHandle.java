@@ -1,10 +1,12 @@
 package com.example.travelvalda.animation;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -20,9 +22,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
+import com.example.travelvalda.Account.LoginActivity;
 import com.example.travelvalda.DashBoard;
 import com.example.travelvalda.MainActivity;
 import com.example.travelvalda.R;
+import android.util.Pair;
+
 
 public class AnimationHandle extends AppCompatActivity {
     Animation topAnim, bottomAnim;
@@ -61,9 +66,14 @@ public class AnimationHandle extends AppCompatActivity {
         // Delay for splash screen
         int SPLASH_SCREEN = 5000;
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(AnimationHandle.this, DashBoard.class);
-            startActivity(intent);
-            finish();
+            Intent intent = new Intent(AnimationHandle.this, LoginActivity.class);
+
+            Pair[] pairs = new Pair[2];
+            pairs[0] = new Pair<View,String>(image, "logo_image");
+            pairs[1] = new Pair<View,String>(logo, "logo_text");
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(AnimationHandle.this,pairs);
+            startActivity(intent,options.toBundle());
         }, SPLASH_SCREEN);
     }
 }
