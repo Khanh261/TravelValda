@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_10px">10.0dp</dimen>
+    <dimen name="_8pxh">8.0dp</dimen>
+    <dimen name="_11px">11.0dp</dimen>
+    <dimen name="_17px">17.0dp</dimen>
+    <dimen name="_13px">13.0dp</dimen>
+    <dimen name="_8px">8.0dp</dimen>
+    <dimen name="_345pxv">345.0dp</dimen>
+    <dimen name="_14pxv">14.0dp</dimen>
+    <dimen name="_33pxv">33.0dp</dimen>
+    <dimen name="_29px">29.0dp</dimen>
+    <dimen name="_5px">5.0dp</dimen>
+    <dimen name="_184px">184.0dp</dimen>
+    <dimen name="_54px">54.0dp</dimen>
+    <dimen name="_2px">2.0dp</dimen>
+    <dimen name="_74px">74.0dp</dimen>
+    <dimen name="_85px">85.0dp</dimen>
+
+</resources>

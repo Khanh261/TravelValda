@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">TravelValda</string>
+    <string name="loading">Loading...</string>
+    <string name="no_internet_connection">No Internet connection!</string>
+    <string name="lbl_parking_area">Parking area</string>
+    <string name="lbl_wifi">Wifi</string>
+    <string name="lbl_price_estimate">Price estimate</string>
+    <string name="lbl_night">night</string>
+    <string name="msg_services_facilities">Services &amp; Facilities</string>
+    <string name="lbl_4_rooms">4 Rooms</string>
+    <string name="lbl_paradise_resort">Paradise Resort</string>
+    <string name="lbl_reverse_now">Reverse Now</string>
+    <string name="lbl_480_night">$480/night</string>
+    <string name="lbl_swimming_pool">Swimming pool</string>
+    <string name="lbl_play_ground">Play ground</string>
+    <string name="msg_welcome_to_resort">Welcome to resort paradise we ensure the best service during your stay in bali with an emphasis on customer comfort. Enjoy Balinese specialties, dance, and the scenic beauty of Bali.</string>
+    <string name="lbl_480">$480</string>
+    <string name="msg_pantai_waecicu">Pantai Waecicu, Labuan Bajo, Kec. Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Tim. 86554</string>
+    <string name="lbl_bars">Bars</string>
+    <string name="lbl_fitness_center">Fitness center</string>
+    <string name="lbl_about_us">About Us</string>
 </resources>
