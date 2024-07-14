@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout android:id="@+id/frameStackShadowOne"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <ImageView android:id="@+id/imageShadowOne"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_shadow"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_shadow"/>
+
+        <ScrollView android:id="@+id/scrollViewScrollview"
+            android:layout_gravity="center"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false">
+            <FrameLayout android:id="@+id/frameStackmaxinOne"
+                android:layout_height="dimen/_900px"
+                android:layout_marginBottom="dimen/_27pxv"
+                android:layout_width="match_parent"
+                android:paddingEnd="dimen/_7pxh"
+                android:paddingStart="dimen/_7pxh">
+                <ImageView android:id="@+id/imageMainOne"
+                    android:layout_gravity="center"
+                    android:layout_height="900dp"
+                    android:layout_width="dimen/_444pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_main"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_main"/>
+
+                <ImageView android:id="@+id/imageIphone12proOne"
+                    android:layout_gravity="center"
+                    android:layout_height="861dp"
+                    android:layout_width="dimen/_400pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_iphone_12_pro_mockup"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_iphone_12_pro_mockup"/>
+            </FrameLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>
