@@ -1,10 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+<resources xmlns:tools="http://schemas.android.com/tools">
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/design_default_color_primary</item>
         <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
         <item name="colorAccent">@color/design_default_color_primary_variant</item>
         
         <item name="android:windowContentTransitions">true</item>
+    </style>
+    <style name="btnSolidRounded">
+        <item name="android:textSize">@dimen/_10px</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:background">@drawable/rectangle_bg_blue_a700_01_radius_8</item>
+    </style>
+    <style name="txtSFProsemibold11">
+        <item name="android:textSize">@dimen/_11px</item>
+        <item name="android:textColor">@color/blue_gray_900</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+    <style name="groupStylewhite_1">
+        <item name="android:background">@drawable/rectangle_bg_white_a700</item>
+    </style>
+    <style name="groupStylegray_50">
+        <item name="android:background">@drawable/rectangle_bg_gray_50</item>
+    </style>
+    <style name="groupStyle">
+        <item name="android:background">@drawable/rectangle_gradient_s_black_900_00_e_black_900_87</item>
+    </style>
+    <style name="txtSFProsemibold17">
+        <item name="android:textSize">@dimen/_17px</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+    <style name="txtSFProbold13">
+        <item name="android:textSize">@dimen/_13px</item>
+        <item name="android:textColor">@color/blue_gray_900</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+    <style name="txtSFPromedium8">
+        <item name="android:textSize">@dimen/_8px</item>
+        <item name="android:textColor">@color/gray_400</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+    </style>
+    <style name="txtSFProregular8">
+        <item name="android:textSize">@dimen/_8px</item>
+        <item name="android:textColor">@color/gray_600</item>
+        <item name="android:fontFamily">@font/sf_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="groupStylewhite_A700">
+        <item name="android:background">@drawable/rectangle_bg_white_a700</item>
     </style>
 </resources>
