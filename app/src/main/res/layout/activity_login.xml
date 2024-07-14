@@ -38,6 +38,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Sign In to continue"
         android:textSize="18sp"
+        android:transitionName="logo_desc"
         android:textAlignment="center"/>
 
     <LinearLayout
@@ -53,6 +54,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="365dp"
             android:hint="Username"
+            android:transitionName="username_tran"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -66,7 +68,8 @@
             android:layout_width="365dp"
             android:hint="Password"
             app:passwordToggleEnabled="true"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:transitionName="password_tran">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -84,15 +87,18 @@
             android:elevation="0dp"
             android:layout_margin="5dp"/>
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GO"
             android:background="@color/black"
             android:textColor="#fff"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:transitionName="button_tran"/>
 
         <Button
+            android:id="@+id/SignUp_Screen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -100,7 +106,8 @@
             android:elevation="0dp"
             android:text="New User? SIGN UP"
             android:textAlignment="center"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:transitionName="login_signup_tran"/>
 
     </LinearLayout>
 

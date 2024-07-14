@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TravelValda"
         tools:targetApi="31">
         <activity
+            android:name=".Account.SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".Account.LoginActivity"
             android:exported="false" />
         <activity
