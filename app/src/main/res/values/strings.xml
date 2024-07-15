@@ -19,4 +19,8 @@
     <string name="lbl_bars">Bars</string>
     <string name="lbl_fitness_center">Fitness center</string>
     <string name="lbl_about_us">About Us</string>
+    <string name="lbl_home">Home</string>
+    <string name="lbl_profile">Profile</string>
+    <string name="lbl_booking">Booking</string>
+    <string name="lbl_search">Search</string>
 </resources>
