@@ -1,48 +1,59 @@
 package com.example.travelvalda.models;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "users")
 public class User {
-    private String name;
-    private String userName;
-    private String email;
-    private String phone;
-    private int roleId;
+    @PrimaryKey(autoGenerate = true)
+    public int userId;
+    public String username;
+    public String password;
+    public String email;
+    public String Phone;
+    public String userType;
 
-    // Constructors
     public User() {
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
+    public User(String username, String password, String email, String phone, String userType) {
 
-    public User(String name, String userName, String email, String phone, int roleId) {
-        this.name = name;
-        this.userName = userName;
+        this.username = username;
+        this.password = password;
         this.email = email;
-        this.phone = phone;
-        this.roleId = roleId;
+        this.Phone = phone;
+        this.userType = userType;
     }
 
-    // Getters and Setters
-    public int getRoleId() {
-        return roleId;
+    public String getPhone() {
+        return Phone;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -53,11 +64,14 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+
+
+    public String getUserType() {
+        return userType;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserType(String userType) {
+        this.userType = userType;
+
     }
 }

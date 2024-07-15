@@ -300,22 +300,59 @@
                     </LinearLayout>
 
                 </FrameLayout>
-                <LinearLayout android:id="@+id/linearColumnvectorsix"
-                    android:layout_height="wrap_content"
+
+
+                <!-- Date Input Fields for Check-In and Check-Out -->
+                <LinearLayout
+                    android:id="@+id/linearRowDateInputs"
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:paddingBottom="4dp"
-                    android:paddingEnd="107dp"
-                    android:paddingStart="107dp"
-                    android:paddingTop="4dp"
-                    style="@style/groupStylewhite_1">
-                    <View android:background="@color/black_900"
-                        android:id="@+id/lineVectorsixOne"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_2px"
-                        android:layout_marginTop="@dimen/_2px"
-                        android:layout_width="60dp"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_11px"
+                    android:paddingEnd="@dimen/_11px">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutCheckIn"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="Check in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextCheckIn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:drawableEnd="@drawable/baseline_calendar_month_24" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Space
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutCheckOut"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="Check Out">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextCheckOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:drawableEnd="@drawable/baseline_calendar_month_24" />
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+
+                <!-- Insert this block just above the RelativeLayout containing the price estimate -->
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
