@@ -14,7 +14,7 @@
         android:style="@style/groupStylegray_999"
         android:id="@+id/linearColumnFloatingIcon"
         android:layout_marginTop="@dimen/_7pxv"
-        tools:context=".YourActivityName">
+        tools:context=".HomePageActivity">
 
         <!-- Title -->
         <TextView
