@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862098133582",
+    "project_id": "houserental-406fc",
+    "storage_bucket": "houserental-406fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862098133582:android:40e11c22393cdac48aa91f",
+        "android_client_info": {
+          "package_name": "com.example.travelvalda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBljmFwblKAyRmvog72liDe0EiUrs0ehkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

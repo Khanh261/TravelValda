@@ -2,6 +2,7 @@ package com.example.travelvalda.animation;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import com.google.firebase.FirebaseApp;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;

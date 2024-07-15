@@ -108,7 +108,5 @@
             android:textAlignment="center"
             android:textColor="#000"
             android:transitionName="login_signup_tran"/>
-
     </LinearLayout>
-
 </LinearLayout>

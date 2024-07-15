@@ -103,6 +103,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GO"
@@ -111,6 +112,7 @@
             android:transitionName="button_tran"/>
 
         <Button
+            android:id="@+id/loginScreenButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Already have an account? Login"

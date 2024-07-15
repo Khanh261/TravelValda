@@ -1,15 +1,16 @@
 package com.example.travelvalda.Account;
-
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +19,16 @@ import androidx.core.util.PairKt;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.travelvalda.MainActivity;
 import com.example.travelvalda.R;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     Button callSignUp, login_btn;
     ImageView image;
     TextView logoText, sloganText;
@@ -34,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-
+        mAuth = FirebaseAuth.getInstance();
 
         callSignUp = findViewById(R.id.SignUp_Screen);
         image = findViewById(R.id.logo_image);
@@ -61,10 +67,48 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(inten, options.toBundle());
             }
         });
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        login_btn.setOnClickListener(v -> loginUser(
+                username.getEditText().getText().toString().trim(),
+                password.getEditText().getText().toString().trim()
+        ));
+
+
+    }
+    private void loginUser(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Email and Password must not be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success
+                        Log.d("Login", "signInWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("Login", "signInWithEmail:failure", task.getException());
+                        Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                        updateUI(null);
+                    }
+                });
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
