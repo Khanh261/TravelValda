@@ -16,5 +16,16 @@
     <dimen name="_2px">2.0dp</dimen>
     <dimen name="_74px">74.0dp</dimen>
     <dimen name="_85px">85.0dp</dimen>
+    <dimen name="_19pxh">19dp</dimen>
+    <dimen name="_20pxh">20dp</dimen>
+    <dimen name="_7pxv">7dp</dimen>
+    <dimen name="_13pxv">13dp</dimen>
+    <dimen name="_39pxv">39dp</dimen>
+    <dimen name="_2pxh">2dp</dimen>
+    <dimen name="_4pxv">4dp</dimen>
+    <dimen name="_5pxv">5dp</dimen>
+    <dimen name="_16pxh">16dp</dimen>
+    <dimen name="_18pxh">18dp</dimen>
+    <dimen name="_3pxv">3dp</dimen>
 
 </resources>
