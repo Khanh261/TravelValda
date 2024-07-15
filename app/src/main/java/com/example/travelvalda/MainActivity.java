@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         newUser.email = "demo@example.com";
         newUser.userType = "guest";
         db.userDao().insertUser(newUser);
+
         insertSampleProperties();
         List<Property> properties = db.propertyDao().getAllProperties();
         Log.d("DB_CHECK", "Properties: " + properties.size());
