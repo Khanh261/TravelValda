@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
         new Thread(() -> {
             db = Room.databaseBuilder(getApplicationContext(),
-                    AppDatabase.class, "hotel_rental").build();
+                    AppDatabase.class, "hotel_rental").fallbackToDestructiveMigration().build();
             runDbOperations();
         }).start();
     }

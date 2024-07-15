@@ -12,12 +12,10 @@ import com.example.travelvalda.models.Property;
 import com.example.travelvalda.models.User;
 import com.example.travelvalda.models.Review;
 
-
-@Database(entities = {User.class, Property.class, Booking.class, Review.class}, version = 1)
+@Database(entities = {User.class, Property.class, Booking.class, Review.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDAO userDao();
     public abstract PropertyDAO propertyDao();
     public abstract BookingDAO bookingDao();
     public abstract ReviewDAO reviewDao();
-
 }

@@ -10,9 +10,26 @@ public class User {
     public String username;
     public String password;
     public String email;
+    public String Phone;
     public String userType;
 
     public User() {
+    }
+    public User(String username, String password, String email, String phone, String userType) {
+
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.Phone = phone;
+        this.userType = userType;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public User(int userId, String username, String password, String email, String userType) {
@@ -55,11 +72,14 @@ public class User {
         this.email = email;
     }
 
+
+
     public String getUserType() {
         return userType;
     }
 
     public void setUserType(String userType) {
         this.userType = userType;
+
     }
 }
