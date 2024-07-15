@@ -86,7 +86,17 @@
                     android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPhoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone No"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
@@ -103,6 +113,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GO"
@@ -111,9 +122,11 @@
             android:transitionName="button_tran"/>
 
         <Button
+            android:id="@+id/btnBackLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Already have an account? Login"
+            android:textColor="@color/black"
             android:background="#00000000"
             android:transitionName="login_signup_tran"/>
     </LinearLayout>
