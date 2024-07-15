@@ -9,6 +9,7 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 materialVersion = "1.0.0"
 googleMaterial = "1.11.0"
+firebaseDatabase = "21.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -20,6 +21,7 @@ activity = { group = "androidx.activity", name = "activity", version = "1.9.0" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 google-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 com-google-android-material-material = { group = "com.google.android.material", name = "material", version.ref = "googleMaterial" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

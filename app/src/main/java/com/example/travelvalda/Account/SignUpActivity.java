@@ -16,9 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.travelvalda.DashBoard;
 import com.example.travelvalda.R;
+import com.example.travelvalda.models.User;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
@@ -61,14 +64,11 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnCompleteListener(task ->{
                     if (task.isSuccessful()) {
                         if (task.getResult().getSignInMethods().size() > 0) {
-                            // Email exists
                             Toast.makeText(SignUpActivity.this, "Email already exists", Toast.LENGTH_SHORT).show();
                         } else {
-                            // Email does not exist, proceed with signup
                             signUpUser();
                         }
                     } else {
-                        // Error occurred while checking email existence
                         Toast.makeText(SignUpActivity.this, "Error checking email existence: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -77,12 +77,22 @@ public class SignUpActivity extends AppCompatActivity {
     private void signUpUser() {
         auth = FirebaseAuth.getInstance();
 
-
+        String name = txtName.getEditText().getText().toString();
+        String userName = txtUserName.getEditText().getText().toString();
         String email = txtEmail.getEditText().getText().toString();
+        String phone = txtPhoneNo.getEditText().getText().toString();
         String password = txtPassword.getEditText().getText().toString();
+
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        String userId = auth.getCurrentUser().getUid();
+                        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+
+                        User newUser = new User(name, userName, email, phone, 1);
+                        usersRef.setValue(newUser);
+
+                        Toast.makeText(SignUpActivity.this, "Sign up successfull", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
@@ -96,9 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-        }
-
+    }
 
 
     private void onBtnBackLogin(View view) {
