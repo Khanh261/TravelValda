@@ -411,7 +411,9 @@
                             android:singleLine="true"
                             android:text="@string/lbl_reverse_now"
                             android:textAllCaps="false"
-                            tools:text="@string/lbl_reverse_now" />
+                            tools:text="@string/lbl_reverse_now"
+                            android:onClick="onReserveButtonClick" />
+                        />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
