@@ -7,11 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.Account.LoginActivity;
 import com.example.travelvalda.R;
+import com.example.travelvalda.UsersFragment;
 import com.example.travelvalda.adapters.PropertyAdapter;
 import com.example.travelvalda.dao.BookingDAO;
 import com.example.travelvalda.dao.PropertiesDAO;
@@ -52,6 +54,8 @@ public class HomePageActivity extends AppCompatActivity {
             initRecyclerView();
 
         }
+
+        findViewById(R.id.imageUsers).setOnClickListener(this::onUsersIconClick);
     }
 
     private void getRoleIdAndRedirect() {
@@ -127,5 +131,13 @@ public class HomePageActivity extends AppCompatActivity {
     public void onProfileIconClick(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
+    }
+
+    public void onUsersIconClick(View view) {
+        UsersFragment usersFragment = new UsersFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameBottomBar, usersFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
