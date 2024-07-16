@@ -14,11 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
@@ -38,17 +41,25 @@ public class MainActivity extends AppCompatActivity {
     private static MainActivity instance;
     private AppDatabase db;
 
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE properties ADD COLUMN new_column TEXT DEFAULT 'default_value'");
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = new Intent(this, AnimationHandle.class);
         startActivity(intent);
         finish();
-        new Thread(() -> {
-            db = Room.databaseBuilder(getApplicationContext(),
-                    AppDatabase.class, "hotel_rental").fallbackToDestructiveMigration().build();
-            runDbOperations();
-        }).start();
+
+        db = Room.databaseBuilder(getApplicationContext(),
+                        AppDatabase.class, "hotel_rental")
+                .addMigrations(MIGRATION_1_2)
+                .build();
     }
 
     private void runDbOperations() {
@@ -82,6 +93,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-
