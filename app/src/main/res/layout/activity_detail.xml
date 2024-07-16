@@ -1,306 +1,336 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/detail_house"
+    android:id="@+id/activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <data/>
+
     <LinearLayout
         android:id="@+id/linearColumnAboutUs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        style="@style/groupStylegray_50">
+        android:orientation="vertical">
+
         <FrameLayout
             android:id="@+id/frameStackakaricons"
-            android:layout_height="@dimen/_345pxv"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="345dp">
+
             <ImageView
                 android:id="@+id/imageImage"
-                android:layout_gravity="center"
-                android:layout_height="@dimen/_345pxv"
                 android:layout_width="match_parent"
+                android:layout_height="345dp"
+                android:layout_gravity="center"
                 android:scaleType="fitXY"
                 android:src="@drawable/home"/>
+
             <LinearLayout
                 android:id="@+id/linearColumnakaricons"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/_14pxv"
-                android:paddingTop="@dimen/_14pxv"
-                style="@style/groupStyle">
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarToolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_33pxv"
+                    android:layout_marginTop="33dp"
                     app:contentInsetStart="0dp">
+
                     <LinearLayout
-                        android:layout_gravity="center_vertical"
                         android:id="@+id/linearRowakaricons"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_11px"
-                        android:layout_marginStart="@dimen/_11px"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginEnd="11dp">
+
                         <ImageButton
-                            android:background="@drawable/rectangle_bg_gray_50"
                             android:id="@+id/btnAkariconsOne"
+                            android:layout_width="29dp"
+                            android:layout_height="29dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_width="@dimen/_29px"
-                            android:layout_height="@dimen/_29px"
-                            android:paddingHorizontal="@dimen/_5px"
-                            android:paddingVertical="@dimen/_5px"
+                            android:background="@drawable/rectangle_bg_gray_50"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="5dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/back"
-                            />
+                            android:contentDescription="back" />
 
                     </LinearLayout>
                 </androidx.appcompat.widget.Toolbar>
 
-                <TextView android:ellipsize="end"
+                <TextView
                     android:id="@+id/txtParadiseresort"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_184px"
                     android:layout_width="match_parent"
-                    android:letterSpacing="0.02"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@string/lbl_paradise_resort"
-                    style="@style/txtSFProsemibold17"
                     tools:text="@string/lbl_paradise_resort"/>
 
-                <TextView android:id="@+id/txtPantaiwaecicu"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_11px"
+                <TextView
+                    android:id="@+id/txtPantaiwaecicu"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
                     android:letterSpacing="0.0"
                     android:text="@string/msg_pantai_waecicu"
-                    style="@style/txtSFPromedium8"
                     tools:text="@string/msg_pantai_waecicu"/>
             </LinearLayout>
         </FrameLayout>
+
         <ScrollView
-            android:clipToPadding="false"
-            android:fillViewport="true"
-            android:layout_gravity="center_horizontal"
             android:id="@+id/scrollViewScrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="18dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:layout_marginTop="18dp">
+
             <LinearLayout
                 android:id="@+id/linearDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView android:ellipsize="end"
+
+                <TextView
                     android:id="@+id/txtAboutus"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11px"
                     android:layout_width="wrap_content"
-                    android:letterSpacing="0.0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@string/lbl_about_us"
-                    style="@style/txtSFProsemibold11"
                     tools:text="@string/lbl_about_us"/>
 
-                <TextView android:id="@+id/txtDescription"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_11px"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_11px"
+                <TextView
+                    android:id="@+id/txtDescription"
                     android:layout_width="match_parent"
-                    android:letterSpacing="0.0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginTop="11dp"
+                    android:ellipsize="end"
                     android:text="@string/msg_welcome_to_resort"
-                    style="@style/txtSFProregular8"
                     tools:text="@string/msg_welcome_to_resort"/>
 
-                <TextView android:ellipsize="end"
+                <TextView
                     android:id="@+id/txtServices"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_11px"
                     android:layout_width="wrap_content"
-                    android:letterSpacing="0.0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="11dp"
+                    android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@string/msg_services_facilities"
-                    style="@style/txtSFProsemibold11"
                     tools:text="@string/msg_services_facilities"/>
-                <LinearLayout android:id="@+id/LinearRow"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_54px"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_11px"
+
+                <LinearLayout
+                    android:id="@+id/LinearRow"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="11dp"
                     android:orientation="horizontal">
-                    <LinearLayout android:id="@+id/LinearRowcheckmark"
-                        android:layout_height="wrap_content"
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageView android:id="@+id/imageIconcheckmark"
+
+                        <ImageView
+                            android:id="@+id/imageIconcheckmark"
+                            android:layout_width="11dp"
+                            android:layout_height="11dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_height="@dimen/_11px"
-                            android:layout_width="@dimen/_11px"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
                             tools:ignore="ContentDescription"/>
-                        <TextView android:ellipsize="end"
+
+                        <TextView
                             android:id="@+id/txtSwimmingpool"
-                            android:gravity="bottom"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_marginTop="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="bottom"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_swimming_pool"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_swimming_pool"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/LinearRowcheckmark1"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_74px"
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark1"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="74dp"
                         android:orientation="horizontal">
-                        <ImageView android:id="@+id/imageIconcheckmark1"
+
+                        <ImageView
+                            android:id="@+id/imageIconcheckmark1"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_height="@dimen/_14pxv"
-                            android:layout_width="@dimen/_14pxv"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
                             tools:ignore="ContentDescription"/>
-                        <TextView android:ellipsize="end"
+
+                        <TextView
                             android:id="@+id/txtRoomsCounter"
-                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_2px"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center_vertical"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_4_rooms"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_4_rooms"/>
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout android:id="@+id/LinearRowOne"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11px"
-                    android:layout_marginTop="@dimen/_5px"
+                <LinearLayout
+                    android:id="@+id/LinearRowOne"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
-                    <LinearLayout android:id="@+id/LinearRowcheckmark2"
-                        android:layout_height="wrap_content"
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark2"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageView android:id="@+id/imageIconcheckmark2"
+
+                        <ImageView
+                            android:id="@+id/imageIconcheckmark2"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_height="@dimen/_14pxv"
-                            android:layout_width="@dimen/_14pxv"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
                             tools:ignore="ContentDescription"/>
-                        <TextView android:ellipsize="end"
+
+                        <TextView
                             android:id="@+id/txtParkingarea"
-                            android:gravity="bottom"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_marginTop="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="bottom"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_parking_area"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_parking_area"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/LinearRowcheckmark3"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_85px"
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark3"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="85dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/imageIconcheckmark3"
-                            android:layout_width="@dimen/_14pxv"
+                            android:layout_width="14dp"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_vertical"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
-                            tools:ignore="ContentDescription" />
-                        <TextView android:ellipsize="end"
+                            tools:ignore="ContentDescription"/>
+
+                        <TextView
                             android:id="@+id/txtBars"
-                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_2px"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center_vertical"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_bars"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_bars"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <FrameLayout
                     android:id="@+id/frameStackioncheckma"
-                    android:layout_height="54dp"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/_5px">
-                    <LinearLayout android:id="@+id/LinearRowcheckmark4"
-                        android:layout_gravity="top|start"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_11px"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark4"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|start"
+                        android:layout_marginStart="11dp"
                         android:orientation="horizontal">
-                        <ImageView android:id="@+id/imageIconcheckmark4"
+
+                        <ImageView
+                            android:id="@+id/imageIconcheckmark4"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_height="@dimen/_14pxv"
-                            android:layout_width="@dimen/_14pxv"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
                             tools:ignore="ContentDescription"/>
-                        <TextView android:ellipsize="end"
-                            android:gravity="top"
+
+                        <TextView
                             android:id="@+id/txtFitnesscenter"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:gravity="top"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_fitness_center"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_fitness_center"/>
                     </LinearLayout>
-                    <LinearLayout android:id="@+id/LinearRowcheckmark5"
-                        android:layout_gravity="start"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_11px"
+
+                    <LinearLayout
+                        android:id="@+id/LinearRowcheckmark5"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="11dp"
                         android:orientation="horizontal">
-                        <ImageView android:id="@+id/imageIconcheckmark5"
+
+                        <ImageView
+                            android:id="@+id/imageIconcheckmark5"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_height="@dimen/_14pxv"
-                            android:layout_width="@dimen/_14pxv"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_ion_checkmark_circle"
                             tools:ignore="ContentDescription"/>
-                        <TextView android:ellipsize="end"
-                            android:gravity="top"
+
+                        <TextView
                             android:id="@+id/txtWifi"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_2px"
-                            android:layout_marginStart="@dimen/_2px"
-                            android:layout_width="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:gravity="top"
+                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/lbl_wifi"
-                            style="@style/txtSFProregular8"
                             tools:text="@string/lbl_wifi"/>
                     </LinearLayout>
-
                 </FrameLayout>
-
 
                 <!-- Date Input Fields for Check-In and Check-Out -->
                 <LinearLayout
@@ -309,15 +339,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
-                    android:paddingStart="@dimen/_11px"
-                    android:paddingEnd="@dimen/_11px">
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutCheckIn"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:hint="Check in">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -326,7 +355,7 @@
                             android:layout_height="wrap_content"
                             android:inputType="none"
                             android:focusable="false"
-                            android:drawableEnd="@drawable/baseline_calendar_month_24" />
+                            android:drawableEnd="@drawable/baseline_calendar_month_24"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Space
@@ -335,11 +364,10 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutCheckOut"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:hint="Check Out">
+                        android:layout_weight="1"
+                        android:hint="Check out">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextCheckOut"
@@ -347,36 +375,35 @@
                             android:layout_height="wrap_content"
                             android:inputType="none"
                             android:focusable="false"
-                            android:drawableEnd="@drawable/baseline_calendar_month_24" />
+                            android:drawableEnd="@drawable/baseline_calendar_month_24"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
-                <!-- Insert this block just above the RelativeLayout containing the price estimate -->
-
-
+                <!-- Price Estimate Section -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <LinearLayout android:id="@+id/linearRowpriceestimate"
-                        style="@style/groupStylewhite_A700"
+                    <LinearLayout
+                        android:id="@+id/linearRowpriceestimate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:orientation="horizontal"
-                        android:paddingStart="@dimen/_11px"
-                        android:paddingTop="@dimen/_8px"
+                        android:paddingStart="11dp"
+                        android:paddingTop="8dp"
                         android:paddingEnd="1dp"
-                        android:paddingBottom="@dimen/_8px">
+                        android:paddingBottom="8dp">
 
-
-                        <LinearLayout android:id="@+id/linearColumnpriceesti"
+                        <LinearLayout
+                            android:id="@+id/linearColumnpriceesti"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="30dp"
-                            android:orientation="vertical">
-                            <TextView android:id="@+id/txtPriceestimate"
-                                style="@style/txtSFProregular8"
+                            android:orientation="vertical"
+                            android:paddingVertical="30dp">
+
+                            <TextView
+                                android:id="@+id/txtPriceestimate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
@@ -384,8 +411,9 @@
                                 android:singleLine="true"
                                 android:text="@string/lbl_price_estimate"
                                 tools:text="@string/lbl_price_estimate"/>
-                            <TextView android:id="@+id/txtPrice"
-                                style="@style/txtSFProbold13"
+
+                            <TextView
+                                android:id="@+id/txtPrice"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
@@ -397,7 +425,6 @@
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btnReverseNow"
-                            style="@style/btnSolidRounded"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="30dp"
@@ -406,17 +433,16 @@
                             android:gravity="center"
                             android:paddingStart="18dp"
                             android:paddingTop="9dp"
-                            android:paddingEnd="@dimen/_8pxh"
+                            android:paddingEnd="8dp"
                             android:paddingBottom="9dp"
                             android:singleLine="true"
                             android:text="@string/lbl_reverse_now"
                             android:textAllCaps="false"
-                            tools:text="@string/lbl_reverse_now" />
+                            tools:text="reserve"
+                            android:onClick="onReserveButtonClick"/>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
-
-</layout>
+</RelativeLayout>

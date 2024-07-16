@@ -25,6 +25,12 @@
             android:name=".DashBoard"
             android:exported="true" />
         <activity
+            android:name=".Public.HomePageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Public.HotelDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".animation.AnimationHandle"
             android:exported="true" />
         <activity

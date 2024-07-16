@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.txtUserName);
         password = findViewById(R.id.txtPassword);
         login_btn = findViewById(R.id.btnLogin);
+
+        login_btn.setOnClickListener(this::onClickLogin);
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,5 +109,10 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void onClickLogin(View view) {
+        Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+        startActivity(intent);
     }
 }
