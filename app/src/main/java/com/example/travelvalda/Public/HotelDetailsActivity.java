@@ -2,6 +2,7 @@ package com.example.travelvalda.Public;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -73,9 +74,8 @@ public class HotelDetailsActivity extends AppCompatActivity {
 
     private void createBooking() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        //get property of this house
         Booking booking = new Booking();
+        booking.setPropertyId("property_1");
         booking.setGuestId(userId);
         booking.setStartDate(txtCheckInDate.getText().toString());
         booking.setEndDate(txtCheckOutDate.getText().toString());
@@ -116,3 +116,5 @@ public class HotelDetailsActivity extends AppCompatActivity {
         datePicker.show(getSupportFragmentManager(), isCheckIn ? "CHECK_IN_PICKER" : "CHECK_OUT_PICKER");
     }
 }
+
+

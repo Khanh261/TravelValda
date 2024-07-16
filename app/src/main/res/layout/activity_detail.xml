@@ -326,47 +326,58 @@
                     android:id="@+id/linearDateInputs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginTop="10dp"
                     android:padding="16dp">
 
-                    <!-- Check-In Date Button and Display -->
-                    <Button
-                        android:id="@+id/btnCheckIn"
-                        android:layout_width="0dp"
+                    <!-- Check-In Date Layout -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Check In"
-                        android:onClick="showCheckInDatePicker" />
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp">
 
-                    <TextView
-                        android:id="@+id/txtCheckInDate"
-                        android:layout_width="wrap_content"
+                        <Button
+                            android:id="@+id/btnCheckIn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Check In"
+                            android:onClick="showCheckInDatePicker" />
+
+                        <TextView
+                            android:id="@+id/txtCheckInDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Date"
+                            android:padding="8dp"
+                            android:layout_marginStart="10dp"/>
+                    </LinearLayout>
+
+                    <!-- Check-Out Date Layout -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Select Date"
-                        android:padding="8dp" />
+                        android:orientation="horizontal">
 
-                    <!-- Space between elements -->
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent" />
+                        <Button
+                            android:id="@+id/btnCheckOut"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Check Out"
+                            android:onClick="showCheckOutDatePicker" />
 
-                    <!-- Check-Out Date Button and Display -->
-                    <Button
-                        android:id="@+id/btnCheckOut"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Check Out"
-                        android:onClick="showCheckOutDatePicker" />
-
-                    <TextView
-                        android:id="@+id/txtCheckOutDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Select Date"
-                        android:padding="8dp" />
+                        <TextView
+                            android:id="@+id/txtCheckOutDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Date"
+                            android:padding="8dp"
+                            android:layout_marginStart="10dp"/>
+                    </LinearLayout>
                 </LinearLayout>
+
 
                 <!-- Add RecyclerView here -->
                 <androidx.recyclerview.widget.RecyclerView
@@ -399,7 +410,7 @@
                             android:paddingVertical="30dp">
 
                             <TextView
-                                android:id="@+id/txtPriceestimate"
+                                android:id="@+id/txtPrice"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
@@ -409,7 +420,7 @@
                                 tools:text="@string/lbl_price_estimate"/>
 
                             <TextView
-                                android:id="@+id/txtPrice"
+                                android:id="@+id/txtPrisce"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
