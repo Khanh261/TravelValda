@@ -37,6 +37,7 @@ public class PropertiesDAO {
                     property.setLocation(dataSnapshot.child("location").getValue(String.class));
                     property.setOwnerId(dataSnapshot.child("ownerId").getValue(String.class)) ;
                     property.setPropertyId(dataSnapshot.getKey());
+                    propertyList.add(property);
                 }
                 firestoreCallback.onCallback(propertyList);
             }

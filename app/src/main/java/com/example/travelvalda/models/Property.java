@@ -1,11 +1,8 @@
 package com.example.travelvalda.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "properties")
 public class Property {
-    @PrimaryKey(autoGenerate = true)
+
     public String propertyId;
     public String ownerId;
     public String title;
