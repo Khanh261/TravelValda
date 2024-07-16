@@ -60,6 +60,11 @@ public class BookingHistoryActivity extends AppCompatActivity {
                     Toast.makeText(BookingHistoryActivity.this, "No bookings found", Toast.LENGTH_SHORT).show();
                 }
             }
+
+            @Override
+            public void onCallback(boolean b) {
+
+            }
         });
     }
 
