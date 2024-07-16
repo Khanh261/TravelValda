@@ -14,7 +14,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="Welcome to TravelValda"
         android:textAppearance="?attr/textAppearanceHeadline4"
         android:gravity="center"
         android:layout_marginTop="16dp"
