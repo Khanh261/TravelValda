@@ -41,6 +41,7 @@ public class HomePageActivity extends AppCompatActivity {
         userDetails = mAuth.getCurrentUser();
         propertyList = new ArrayList<>();
 
+
         initView();
         initAction();
         if (userDetails == null) {
@@ -122,5 +123,9 @@ public class HomePageActivity extends AppCompatActivity {
     public void onBookingIconClick(View view) {
         // Chuyển đến BookingActivity dựa trên roleId
         getRoleIdAndRedirect();
+    }
+    public void onProfileIconClick(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 }
