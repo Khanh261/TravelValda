@@ -3,6 +3,7 @@ package com.example.travelvalda.Account;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Gravity;
@@ -30,7 +31,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
-
+    SharedPreferences sharedPreferences;
     Button callSignUp, login_btn;
     ImageView image;
     TextView logoText, sloganText;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
         callSignUp = findViewById(R.id.SignUp_Screen);
         image = findViewById(R.id.logo_image);
@@ -87,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     FirebaseUser users = auth.getCurrentUser();
                                     if (users != null) {
+                                        saveUserId(users.getUid());
                                         Toast.makeText(getApplicationContext(),
                                                         "Login Success!!",
                                                         Toast.LENGTH_LONG)
@@ -115,5 +118,15 @@ public class LoginActivity extends AppCompatActivity {
     private void onClickLogin(View view) {
         Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
         startActivity(intent);
+    }
+    private void saveUserId(String userId) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("uid", userId);
+        editor.apply();
+    }
+
+    // Method to retrieve uid from SharedPreferences
+    private String getUserId() {
+        return sharedPreferences.getString("uid", "");
     }
 }
