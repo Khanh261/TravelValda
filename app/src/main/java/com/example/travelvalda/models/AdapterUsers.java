@@ -1,6 +1,7 @@
 package com.example.travelvalda.models;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.travelvalda.ChatActivity;
 import com.example.travelvalda.R;
 
 import java.util.List;
@@ -35,17 +37,18 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHoder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHoder holder, int position) {
+
+        String hisUID = userList.get(position).getUserId();
         String userName = userList.get(position).getUserName();
         String userEmail = userList.get(position).getEmail();
 
         holder.mNameTv.setText(userName);
         holder.mEmailTv.setText(userEmail);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, ""+userEmail, Toast.LENGTH_SHORT).show();
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ChatActivity.class);
+            intent.putExtra("hisUid", hisUID);
+            context.startActivity(intent);
         });
     }
 
