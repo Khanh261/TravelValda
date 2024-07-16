@@ -42,6 +42,7 @@ public class HomePageActivity extends AppCompatActivity {
         userDetails = mAuth.getCurrentUser();
         propertyList = new ArrayList<>();
 
+
         initView();
         initAction();
         if (userDetails == null) {
@@ -101,6 +102,10 @@ public class HomePageActivity extends AppCompatActivity {
     public void onBookingIconClick(View view) {
         // Xử lý chuyển hướng sang màn hình BookingHistory
         Intent intent = new Intent(this, BookingHistoryActivity.class);
+        startActivity(intent);
+    }
+    public void onProfileIconClick(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 }

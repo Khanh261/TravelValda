@@ -185,6 +185,7 @@
                     android:layout_height="18dp"
                     android:src="@drawable/profile_icon"
                     android:scaleType="fitXY"
+                    android:onClick="onProfileIconClick"
                     tools:ignore="ContentDescription" />
 
                 <TextView

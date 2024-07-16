@@ -5,16 +5,16 @@ package com.example.travelvalda.models;
 
 public class Review {
 
-    public int reviewId;
-    public int propertyId;
-    public int guestId;
-    public int rating;
+    public String reviewId;
+    public String propertyId;
+    public String guestId;
+    public String rating;
     public String comment;
 
     public Review() {
     }
 
-    public Review(int reviewId, int propertyId, int guestId, int rating, String comment) {
+    public Review(String reviewId, String propertyId, String guestId, String rating, String comment) {
         this.reviewId = reviewId;
         this.propertyId = propertyId;
         this.guestId = guestId;
@@ -22,35 +22,35 @@ public class Review {
         this.comment = comment;
     }
 
-    public int getReviewId() {
+    public String getReviewId() {
         return reviewId;
     }
 
-    public void setReviewId(int reviewId) {
+    public void setReviewId(String reviewId) {
         this.reviewId = reviewId;
     }
 
-    public int getPropertyId() {
+    public String getPropertyId() {
         return propertyId;
     }
 
-    public void setPropertyId(int propertyId) {
+    public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
     }
 
-    public int getGuestId() {
+    public String getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(int guestId) {
+    public void setGuestId(String guestId) {
         this.guestId = guestId;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
