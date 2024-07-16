@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="start"
     android:id="@+id/linearColumnFloatingIcon"
-    android:layout_marginTop="@dimen/_7pxv"
+    android:layout_marginTop="7dp"
     tools:context=".Public.HomePageActivity">
 
     <!-- Title -->
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Search hint"
-            android:padding="@dimen/_8px"
+            android:padding="8dp"
             tools:hint="Search for hotels, destinations" />
 
         <Button
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search"
-            android:padding="@dimen/_8px"
+            android:padding="8dp"
             tools:text="Search" />
     </LinearLayout>
 
@@ -53,93 +53,17 @@
         android:text="Featured Hotel"
         android:textAppearance="?attr/textAppearanceHeadline5"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="@dimen/_8px"
+        android:layout_marginTop="8dp"
         tools:text="Featured Hotels" />
 
-    <ScrollView
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- Example Hotel Item -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_8px"
-                android:layout_marginBottom="16dp"
-                android:background="?attr/selectableItemBackground">
-
-                <ImageView
-                    android:id="@+id/ivHotelImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@drawable/home"
-                    android:scaleType="centerCrop"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tvHotelName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hotel Name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:layout_marginTop="@dimen/_8px"
-                    tools:text="Hotel Sunshine" />
-
-                <TextView
-                    android:id="@+id/tvHotelLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hotel Location"
-                    android:layout_marginTop="4dp"
-                    tools:text="Downtown, City" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_8px"
-                android:layout_marginBottom="16dp"
-                android:background="?attr/selectableItemBackground">
-
-                <ImageView
-                    android:id="@+id/ivHotelImage4"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/homestay1"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tvHotelName4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hotel Name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:layout_marginTop="@dimen/_8px"
-                    tools:text="City Central Hotel" />
-
-                <TextView
-                    android:id="@+id/tvHotelLocation4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hotel Location"
-                    android:layout_marginTop="4dp"
-                    tools:text="City Center, Downtown" />
-
-            </LinearLayout>
-            <!-- Repeat Hotel Item as needed -->
-        </LinearLayout>
-    </ScrollView>
+        android:layout_weight="1"
+        android:padding="16dp" />
 
     <!-- Bottom Navigation Bar -->
     <FrameLayout
@@ -152,8 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/_13pxv"
-            android:layout_marginBottom="@dimen/_39pxv">
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="39dp">
 
             <LinearLayout
                 android:id="@+id/linearAutoLayoutVer0"
@@ -165,8 +89,8 @@
 
                 <ImageView
                     android:id="@+id/imageHome"
-                    android:layout_width="@dimen/_19pxh"
-                    android:layout_height="@dimen/_20pxh"
+                    android:layout_width="19dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/home_icon"
                     android:scaleType="fitXY"
                     tools:ignore="ContentDescription" />
@@ -175,9 +99,9 @@
                     android:id="@+id/txtHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_marginEnd="@dimen/_2pxh"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
@@ -195,8 +119,8 @@
 
                 <ImageView
                     android:id="@+id/imageRewind"
-                    android:layout_width="@dimen/_18pxh"
-                    android:layout_height="@dimen/_19pxh"
+                    android:layout_width="18dp"
+                    android:layout_height="19dp"
                     android:src="@drawable/search_icon"
                     android:scaleType="fitXY"
                     tools:ignore="ContentDescription" />
@@ -205,9 +129,9 @@
                     android:id="@+id/txtSearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_marginEnd="@dimen/_2pxh"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
@@ -225,8 +149,8 @@
 
                 <ImageView
                     android:id="@+id/imageMegaphone"
-                    android:layout_width="@dimen/_16pxh"
-                    android:layout_height="@dimen/_18pxh"
+                    android:layout_width="16dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/booking_icon"
                     android:scaleType="fitXY"
                     tools:ignore="ContentDescription" />
@@ -235,9 +159,9 @@
                     android:id="@+id/txtBooking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5pxv"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_marginEnd="@dimen/_2pxh"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
@@ -255,8 +179,8 @@
 
                 <ImageView
                     android:id="@+id/imageProfile"
-                    android:layout_width="@dimen/_16pxh"
-                    android:layout_height="@dimen/_18pxh"
+                    android:layout_width="16dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/profile_icon"
                     android:scaleType="fitXY"
                     tools:ignore="ContentDescription" />
@@ -265,9 +189,9 @@
                     android:id="@+id/txtProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_marginEnd="@dimen/_2pxh"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:gravity="center_horizontal"

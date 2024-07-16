@@ -12,6 +12,16 @@ public class Property {
     public String description;
     public double pricePerNight;
     public String location;
+    private String imageUrl;
+
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
     public Property() {
     }

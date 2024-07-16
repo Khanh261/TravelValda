@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onClickLogin(View view) {
-        Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
         startActivity(intent);
     }
 }
