@@ -12,8 +12,12 @@ import java.util.List;
 
 @Dao
 public interface PropertyDAO {
+
     @Query("SELECT * FROM properties")
     List<Property> getAllProperties();
+
+    @Query("SELECT * FROM properties WHERE imageUrl IS NOT NULL AND imageUrl != ''")
+    List<Property> getPropertiesWithImages();
 
     @Insert
     void insertProperty(Property property);

@@ -3,12 +3,14 @@ package com.example.travelvalda.models;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.R;
-import com.example.travelvalda.models.Property;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,9 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
         holder.tvDescription.setText(property.getDescription());
         holder.tvPricePerNight.setText("$" + property.getPricePerNight());
         holder.tvLocation.setText(property.getLocation());
+
+        // Load image using Picasso library
+        Picasso.get().load(property.getImageUrl()).placeholder(R.drawable.home).into(holder.ivPropertyImage);
     }
 
     @Override
@@ -43,8 +48,9 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
         return properties.size();
     }
 
-    class PropertyViewHolder extends RecyclerView.ViewHolder {
+    static class PropertyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle, tvDescription, tvPricePerNight, tvLocation;
+        ImageView ivPropertyImage;
 
         public PropertyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -52,6 +58,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvPricePerNight = itemView.findViewById(R.id.tvPricePerNight);
             tvLocation = itemView.findViewById(R.id.tvLocation);
+            ivPropertyImage = itemView.findViewById(R.id.ivPropertyImage);
         }
     }
 }
