@@ -23,4 +23,5 @@
     <string name="lbl_profile">Profile</string>
     <string name="lbl_booking">Booking</string>
     <string name="lbl_search">Search</string>
+    <string name="lbl_users">Users</string>
 </resources>

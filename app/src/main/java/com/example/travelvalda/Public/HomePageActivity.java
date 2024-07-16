@@ -8,11 +8,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.Account.LoginActivity;
 import com.example.travelvalda.R;
+import com.example.travelvalda.UsersFragment;
 import com.example.travelvalda.adapters.PropertyAdapter;
 import com.example.travelvalda.dao.PropertiesDAO;
 import com.example.travelvalda.models.Property;
@@ -108,4 +111,12 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void onUsersIconClick(View view) {
+        Intent intent = new Intent(this, UsersFragment.class);
+        startActivity(intent);
+    }
+
+
+
 }
