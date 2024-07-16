@@ -34,58 +34,50 @@
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbarToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="33dp"
-                    app:contentInsetStart="0dp">
-
-                    <LinearLayout
-                        android:id="@+id/linearRowakaricons"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginStart="11dp"
-                        android:layout_marginEnd="11dp">
-
-                        <ImageButton
-                            android:id="@+id/btnAkariconsOne"
-                            android:layout_width="29dp"
-                            android:layout_height="29dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/rectangle_bg_gray_50"
-                            android:paddingHorizontal="5dp"
-                            android:paddingVertical="5dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/back"
-                            android:contentDescription="back" />
-
-                    </LinearLayout>
-                </androidx.appcompat.widget.Toolbar>
-
                 <TextView
                     android:id="@+id/txtParadiseresort"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="11dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="200dp"
                     android:ellipsize="end"
                     android:singleLine="true"
+                    android:textSize="30dp"
                     android:text="@string/lbl_paradise_resort"
+                    android:textColor="@color/white"
                     tools:text="@string/lbl_paradise_resort"/>
 
-                <TextView
-                    android:id="@+id/txtPantaiwaecicu"
+               </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
+                    android:id="@+id/linearRowakaricons"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="11dp"
-                    android:layout_marginTop="5dp"
-                    android:ellipsize="end"
-                    android:letterSpacing="0.0"
-                    android:text="@string/msg_pantai_waecicu"
-                    tools:text="@string/msg_pantai_waecicu"/>
-            </LinearLayout>
+                    android:layout_marginEnd="11dp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnAkariconsOne"
+                        android:layout_width="29dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/rectangle_bg_gray_50"
+                        android:contentDescription="back"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/back" />
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
         </FrameLayout>
 
         <ScrollView
@@ -125,15 +117,12 @@
                     tools:text="@string/msg_welcome_to_resort"/>
 
                 <TextView
-                    android:id="@+id/txtServices"
+                    android:id="@+id/txtLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="11dp"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@string/msg_services_facilities"
-                    tools:text="@string/msg_services_facilities"/>
+                    android:text="Location"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="11dp"/>
 
                 <LinearLayout
                     android:id="@+id/LinearRow"

@@ -42,10 +42,8 @@ public class HomePageActivity extends AppCompatActivity {
         propertyAdapter = new PropertyAdapter();
         recyclerView.setAdapter(propertyAdapter);
 
-        // Thêm dữ liệu cứng vào cơ sở dữ liệu
         DatabaseClient.getInstance(getApplicationContext()).addInitialData();
 
-        // Load properties từ cơ sở dữ liệu
         loadProperties();
     }
 

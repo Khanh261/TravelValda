@@ -26,7 +26,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract BookingDAO bookingDao();
     public abstract ReviewDAO reviewDao();
 
-    // Migration từ version 2 lên version 3
     public static final Migration MIGRATION_2_3 = new Migration(2, 3) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
@@ -35,7 +34,6 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
-    // Phương thức static để lấy instance của AppDatabase
     private static volatile AppDatabase instance;
 
     public static synchronized AppDatabase getInstance(Context context) {

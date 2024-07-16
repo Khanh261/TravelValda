@@ -1,5 +1,6 @@
 package com.example.travelvalda.models;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.travelvalda.Public.HotelDetailsActivity;
 import com.example.travelvalda.R;
 import com.squareup.picasso.Picasso;
 
@@ -39,9 +41,19 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
         holder.tvPricePerNight.setText("$" + property.getPricePerNight());
         holder.tvLocation.setText(property.getLocation());
 
-        // Load image using Picasso library
         Picasso.get().load(property.getImageUrl()).placeholder(R.drawable.home).into(holder.ivPropertyImage);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), HotelDetailsActivity.class);
+            intent.putExtra("imageUrl", property.getImageUrl()); // Assuming there's a getter for imageUrl
+            intent.putExtra("title", property.getTitle());
+            intent.putExtra("description", property.getDescription());
+            intent.putExtra("location", property.getLocation());
+            intent.putExtra("pricePerNight", property.getPricePerNight());
+            v.getContext().startActivity(intent);
+        });
     }
+
 
     @Override
     public int getItemCount() {
