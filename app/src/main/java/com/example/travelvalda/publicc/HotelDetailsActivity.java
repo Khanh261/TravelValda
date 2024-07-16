@@ -1,4 +1,4 @@
-package com.example.travelvalda.Public;
+package com.example.travelvalda.publicc;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

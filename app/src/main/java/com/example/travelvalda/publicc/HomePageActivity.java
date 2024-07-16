@@ -1,6 +1,9 @@
-package com.example.travelvalda.Public;
+package com.example.travelvalda.publicc;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +12,7 @@ import com.example.travelvalda.R;
 import com.example.travelvalda.client.DatabaseClient;
 import com.example.travelvalda.models.Property;
 import com.example.travelvalda.models.PropertyAdapter;
+import com.example.travelvalda.owner.OwnerDashboardActivity;
 
 import java.util.List;
 
@@ -49,4 +53,11 @@ public class HomePageActivity extends AppCompatActivity {
             }
         }).start();
     }
+    public void onSearchClicked(View view) {
+        // Xử lý khi người dùng click vào ImageView hoặc TextView ở đây
+        // Ví dụ: chuyển hướng sang trang của owner
+        Intent intent = new Intent(this, OwnerDashboardActivity.class); // Thay OwnerActivity bằng tên Activity của Owner
+        startActivity(intent);
+    }
+
 }

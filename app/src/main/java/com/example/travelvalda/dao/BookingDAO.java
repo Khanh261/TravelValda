@@ -18,4 +18,6 @@ public interface BookingDAO {
 
     @Query("SELECT * FROM bookings")
     List<Booking> getAllBookings();
+
+
 }

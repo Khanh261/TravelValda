@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.example.travelvalda.database.AppDatabase;
+import com.example.travelvalda.models.Booking;
 import com.example.travelvalda.models.Property;
 
 public class DatabaseClient {
@@ -57,6 +58,22 @@ public class DatabaseClient {
                     property2.setLocation("City Center, Downtown");
                     property2.setImageUrl("https://thuthuatnhanh.com/wp-content/uploads/2020/01/hinh-anh-mau-biet-thu-3-tang-dep-sang-trong-va-hien-dai-scaled.jpg"); // Đường dẫn ảnh
 
+                    Booking booking1 = new Booking();
+                    booking1.setPropertyId(1);
+                    booking1.setGuestId(1);
+                    booking1.setStartDate("2024-07-20");
+                    booking1.setEndDate("2024-07-25");
+                    booking1.setStatus("pending");
+
+                    Booking booking2 = new Booking();
+                    booking2.setPropertyId(2);
+                    booking2.setGuestId(2);
+                    booking2.setStartDate("2024-08-01");
+                    booking2.setEndDate("2024-08-10");
+                    booking2.setStatus("pending");
+
+                    appDatabase.bookingDao().insertBooking(booking1);
+                    appDatabase.bookingDao().insertBooking(booking2);
                     appDatabase.propertyDao().insertAll(property1, property2);
                 }
             }

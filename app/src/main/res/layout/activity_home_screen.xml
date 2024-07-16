@@ -7,7 +7,7 @@
     android:gravity="start"
     android:id="@+id/linearColumnFloatingIcon"
     android:layout_marginTop="7dp"
-    tools:context=".Public.HomePageActivity">
+    tools:context=".publicc.HomePageActivity">
 
     <!-- Title -->
     <TextView
@@ -134,6 +134,7 @@
                     android:layout_marginEnd="2dp"
                     android:singleLine="true"
                     android:ellipsize="end"
+                    android:onClick="onSearchClicked"
                     android:gravity="center_horizontal"
                     android:text="@string/lbl_search"
                     tools:text="@string/lbl_search" />

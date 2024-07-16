@@ -25,10 +25,16 @@
             android:name=".DashBoard"
             android:exported="true" />
         <activity
-            android:name=".Public.HomePageActivity"
+            android:name=".publicc.HomePageActivity"
             android:exported="true" />
         <activity
-            android:name=".Public.HotelDetailsActivity"
+            android:name=".publicc.HotelDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".owner.OwnerBookingDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".owner.OwnerDashboardActivity"
             android:exported="true" />
         <activity
             android:name=".animation.AnimationHandle"
