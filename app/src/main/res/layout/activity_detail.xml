@@ -47,7 +47,7 @@
                     android:textColor="@color/white"
                     tools:text="@string/lbl_paradise_resort"/>
 
-               </LinearLayout>
+            </LinearLayout>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarToolbar"
@@ -66,7 +66,7 @@
 
                     <ImageButton
                         android:id="@+id/btnAkariconsOne"
-                        android:layout_width="29dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/rectangle_bg_gray_50"
@@ -323,50 +323,57 @@
 
                 <!-- Date Input Fields for Check-In and Check-Out -->
                 <LinearLayout
-                    android:id="@+id/linearRowDateInputs"
+                    android:id="@+id/linearDateInputs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:orientation="horizontal"
-                    android:paddingStart="11dp"
-                    android:paddingEnd="11dp">
+                    android:layout_marginTop="10dp"
+                    android:padding="16dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutCheckIn"
+                    <!-- Check-In Date Button and Display -->
+                    <Button
+                        android:id="@+id/btnCheckIn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Check in">
+                        android:text="Check In"
+                        android:onClick="showCheckInDatePicker" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextCheckIn"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:focusable="false"
-                            android:drawableEnd="@drawable/baseline_calendar_month_24"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/txtCheckInDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:padding="8dp" />
 
+                    <!-- Space between elements -->
                     <Space
-                        android:layout_width="16dp"
+                        android:layout_width="20dp"
                         android:layout_height="match_parent" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutCheckOut"
+                    <!-- Check-Out Date Button and Display -->
+                    <Button
+                        android:id="@+id/btnCheckOut"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Check out">
+                        android:text="Check Out"
+                        android:onClick="showCheckOutDatePicker" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextCheckOut"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:focusable="false"
-                            android:drawableEnd="@drawable/baseline_calendar_month_24"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/txtCheckOutDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:padding="8dp" />
                 </LinearLayout>
+
+                <!-- Add RecyclerView here -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
 
                 <!-- Price Estimate Section -->
                 <RelativeLayout
@@ -429,6 +436,7 @@
                             android:textAllCaps="false"
                             tools:text="reserve"
                             android:onClick="onReserveButtonClick"/>
+
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>

@@ -57,7 +57,7 @@ dependencies {
     annotationProcessor ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
     annotationProcessor ("androidx.lifecycle:lifecycle-compiler:2.2.0")
-
+    implementation ("com.google.android.material:material:1.4.0")
 
 
 
