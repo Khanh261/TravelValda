@@ -1,5 +1,6 @@
 package com.example.travelvalda.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.travelvalda.Public.HotelDetailsActivity;
 import com.example.travelvalda.R;
 import com.example.travelvalda.models.Property;
 
@@ -55,7 +57,22 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
         private void bindingView() {
             hotelName = itemView.findViewById(R.id.tvHotelName4);
             hotelLocation = itemView.findViewById(R.id.tvHotelLocation4);
+
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    Property property = propertyList.get(position);
+                    Intent intent = new Intent(v.getContext(), HotelDetailsActivity.class);
+                    intent.putExtra("imageUrl", property.getImageUrl());
+                    intent.putExtra("title", property.getTitle());
+                    intent.putExtra("description", property.getDescription());
+                    intent.putExtra("location", property.getLocation());
+                    intent.putExtra("pricePerNight", property.getPricePerNight());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
+
 
         private void bindingAction() {
 
