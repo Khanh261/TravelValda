@@ -1,11 +1,9 @@
 package com.example.travelvalda.Account;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,16 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.travelvalda.DashBoard;
 import com.example.travelvalda.R;
-import com.example.travelvalda.models.User;
+import com.example.travelvalda.models.Users;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth auth;
@@ -39,6 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
         txtPhoneNo = findViewById(R.id.txtPhoneNo);
         txtPassword = findViewById(R.id.txtPassword);
     }
+
     private void bindingAction(){
         btnSignUp.setOnClickListener(this::onBtnSignUp);
     }
@@ -53,15 +51,14 @@ public class SignUpActivity extends AppCompatActivity {
         if (name.isEmpty() || userName.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
         } else {
-            checktEmail(email);
+            checkEmail(email);
         }
     }
 
-    private void checktEmail(String email)
-    {
+    private void checkEmail(String email) {
         auth = FirebaseAuth.getInstance();
         auth.fetchSignInMethodsForEmail(email)
-                .addOnCompleteListener(task ->{
+                .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         if (task.getResult().getSignInMethods().size() > 0) {
                             Toast.makeText(SignUpActivity.this, "Email already exists", Toast.LENGTH_SHORT).show();
@@ -72,11 +69,9 @@ public class SignUpActivity extends AppCompatActivity {
                         Toast.makeText(SignUpActivity.this, "Error checking email existence: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
-    private void signUpUser() {
-        auth = FirebaseAuth.getInstance();
 
+    private void signUpUser() {
         String name = txtName.getEditText().getText().toString();
         String userName = txtUserName.getEditText().getText().toString();
         String email = txtEmail.getEditText().getText().toString();
@@ -89,13 +84,17 @@ public class SignUpActivity extends AppCompatActivity {
                         String userId = auth.getCurrentUser().getUid();
                         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
-                        User newUser = new User(userName, password, phone, email, "1");
-                        usersRef.setValue(newUser);
-
-                        Toast.makeText(SignUpActivity.this, "Sign up successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+                        Users newUser = new Users(name, userName, phone, email, 1);
+                        usersRef.setValue(newUser).addOnCompleteListener(databaseTask -> {
+                            if (databaseTask.isSuccessful()) {
+                                Toast.makeText(SignUpActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(SignUpActivity.this, "Failed to save user data: " + databaseTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     } else {
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                             Toast.makeText(SignUpActivity.this, "Email already exists", Toast.LENGTH_SHORT).show();
@@ -107,7 +106,6 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
-
 
     private void onBtnBackLogin(View view) {
         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
