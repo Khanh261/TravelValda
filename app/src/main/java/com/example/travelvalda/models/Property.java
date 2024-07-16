@@ -1,13 +1,10 @@
 package com.example.travelvalda.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "properties")
 public class Property {
-    @PrimaryKey(autoGenerate = true)
-    public int propertyId;
-    public int ownerId;
+
+    public String propertyId;
+    public String ownerId;
     public String title;
     public String description;
     public double pricePerNight;
@@ -26,19 +23,19 @@ public class Property {
     public Property() {
     }
 
-    public int getPropertyId() {
+    public String getPropertyId() {
         return propertyId;
     }
 
-    public void setPropertyId(int propertyId) {
+    public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
     }
 
-    public int getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(int ownerId) {
+    public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
 

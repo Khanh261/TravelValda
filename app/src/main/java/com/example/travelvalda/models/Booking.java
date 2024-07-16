@@ -1,23 +1,10 @@
 package com.example.travelvalda.models;
 
-import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.PrimaryKey;
 
-import com.example.travelvalda.models.Property;
-import com.example.travelvalda.models.User;
 
-@Entity(tableName = "bookings",
-        foreignKeys = {
-                @ForeignKey(entity = Property.class,
-                        parentColumns = "propertyId",
-                        childColumns = "propertyId"),
-                @ForeignKey(entity = User.class,
-                        parentColumns = "userId",
-                        childColumns = "guestId")
-        })
+
 public class Booking {
-    @PrimaryKey(autoGenerate = true)
+
     public int bookingId;
     public int propertyId;
     public int guestId;

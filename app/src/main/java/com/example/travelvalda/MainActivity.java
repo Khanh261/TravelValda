@@ -26,7 +26,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.example.travelvalda.animation.AnimationHandle;
-import com.example.travelvalda.database.AppDatabase;
+
 import com.example.travelvalda.models.Booking;
 import com.example.travelvalda.models.Property;
 import com.example.travelvalda.models.User;
