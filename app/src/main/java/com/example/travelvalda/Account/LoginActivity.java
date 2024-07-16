@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.travelvalda.DashBoard;
+import com.example.travelvalda.Public.HomePageActivity;
 import com.example.travelvalda.R;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -90,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                                         "Login Success!!",
                                                         Toast.LENGTH_LONG)
                                                 .show();
-                                        Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+                                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
