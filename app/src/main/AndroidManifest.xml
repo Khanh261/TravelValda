@@ -34,6 +34,9 @@
             android:name=".Public.HotelDetailsActivity"
             android:exported="true" />
         <activity
+            android:name=".Public.BookingHistoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".animation.AnimationHandle"
             android:exported="true" />
         <activity

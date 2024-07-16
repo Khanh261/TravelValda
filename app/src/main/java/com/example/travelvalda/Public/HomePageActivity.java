@@ -48,7 +48,7 @@ public class HomePageActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
-        }else{
+        } else {
             initRecyclerView();
         }
 
@@ -96,5 +96,11 @@ public class HomePageActivity extends AppCompatActivity {
         rvProperty = findViewById(R.id.rvProperty);
         editText = findViewById(R.id.etSearch);
         btnSearch = findViewById(R.id.btnSearch);
+    }
+
+    public void onBookingIconClick(View view) {
+        // Xử lý chuyển hướng sang màn hình BookingHistory
+        Intent intent = new Intent(this, BookingHistoryActivity.class);
+        startActivity(intent);
     }
 }

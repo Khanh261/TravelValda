@@ -153,6 +153,7 @@
                     android:layout_height="18dp"
                     android:src="@drawable/booking_icon"
                     android:scaleType="fitXY"
+                    android:onClick="onBookingIconClick"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -166,6 +167,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:text="@string/lbl_booking"
+                    android:onClick="onBookingIconClick"
                     tools:text="@string/lbl_booking" />
             </LinearLayout>
 

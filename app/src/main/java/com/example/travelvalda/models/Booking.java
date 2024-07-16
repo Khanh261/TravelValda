@@ -5,34 +5,34 @@ package com.example.travelvalda.models;
 
 public class Booking {
 
-    public int bookingId;
-    public int propertyId;
-    public int guestId;
+    public String bookingId;
+    public String propertyId;
+    public String guestId;
     public String startDate;
     public String endDate;
     public String status;
 
-    public int getBookingId() {
+    public String getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
     }
 
-    public int getPropertyId() {
+    public String getPropertyId() {
         return propertyId;
     }
 
-    public void setPropertyId(int propertyId) {
+    public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
     }
 
-    public int getGuestId() {
+    public String getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(int guestId) {
+    public void setGuestId(String guestId) {
         this.guestId = guestId;
     }
 
@@ -63,7 +63,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(int bookingId, int propertyId, int guestId, String startDate, String endDate, String status) {
+    public Booking(String bookingId, String propertyId, String guestId, String startDate, String endDate, String status) {
         this.bookingId = bookingId;
         this.propertyId = propertyId;
         this.guestId = guestId;
