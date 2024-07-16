@@ -213,7 +213,7 @@
                     android:id="@+id/imageUsers"
                     android:layout_width="16dp"
                     android:layout_height="18dp"
-                    android:src="@drawable/profile_icon"
+                    android:src="@drawable/ic_user_black"
                     android:scaleType="fitXY"
                     android:onClick="onUsersIconClick"
                     tools:ignore="ContentDescription" />
