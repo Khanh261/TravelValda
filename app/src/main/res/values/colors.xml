@@ -20,4 +20,7 @@
     <color name="black_900">#000000</color>
     <color name="blue_gray_900">#323232</color>
     <color name="white_A700">#FFFFFF</color>
+    <color name="PrimaryDank">#791A9D</color>
+    <color name="Sliver">#DDDDDD</color>
+    <color name="Blue">#99FFFF</color>
 </resources>

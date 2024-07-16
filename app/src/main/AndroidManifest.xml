@@ -47,6 +47,12 @@
             android:name=".UsersFragment"
             android:exported="true" />
         <activity
+            android:name=".ChatActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChatListFragment"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
