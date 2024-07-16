@@ -5,18 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.Account.LoginActivity;
 import com.example.travelvalda.R;
-import com.example.travelvalda.UsersFragment;
 import com.example.travelvalda.adapters.PropertyAdapter;
+import com.example.travelvalda.dao.BookingDAO;
 import com.example.travelvalda.dao.PropertiesDAO;
 import com.example.travelvalda.models.Property;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -54,10 +50,31 @@ public class HomePageActivity extends AppCompatActivity {
             finish();
         } else {
             initRecyclerView();
-        }
 
-        // Add similar click listeners for other hotel images as needed
-        findViewById(R.id.imageUsers).setOnClickListener(this::onUsersIconClick);
+        }
+    }
+
+    private void getRoleIdAndRedirect() {
+        BookingDAO bookingDAO = new BookingDAO();
+        bookingDAO.getRoleId(userDetails.getUid(), new BookingDAO.RoleCallback() {
+            @Override
+            public void onCallback(Integer roleId) {
+                if (roleId != null) {
+                    Intent intent;
+                    if (roleId == 1) {
+                        // Nếu roleId là 1, chuyển đến BookingHistoryActivity
+                        intent = new Intent(HomePageActivity.this, BookingHistoryActivity.class);
+                    } else {
+                        // Nếu roleId là 0 hoặc khác, chuyển đến BookingOwnerActivity
+                        intent = new Intent(HomePageActivity.this, BookingOwnerActivity.class);
+                    }
+                    startActivity(intent);
+                } else {
+                    // Xử lý trường hợp không lấy được roleId
+                    // Ví dụ: thông báo lỗi, chuyển hướng người dùng đến màn hình khác, vv.
+                }
+            }
+        });
     }
 
     private void initAction() {
@@ -104,23 +121,11 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     public void onBookingIconClick(View view) {
-        // Xử lý chuyển hướng sang màn hình BookingHistory
-        Intent intent = new Intent(this, BookingHistoryActivity.class);
-        startActivity(intent);
+        // Chuyển đến BookingActivity dựa trên roleId
+        getRoleIdAndRedirect();
     }
     public void onProfileIconClick(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
-
-    public void onUsersIconClick(View view) {
-        UsersFragment usersFragment = new UsersFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameBottomBar, usersFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
-
-
 }
