@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.R;
 import com.example.travelvalda.adapters.BookingAdapter;
-import com.example.travelvalda.adapters.FirestoreBookingAdapter;
+import com.example.travelvalda.adapters.RealtimeDatabaseBookingAdapter;
 import com.example.travelvalda.models.Booking;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,11 +39,13 @@ public class HotelDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(bookingAdapter);
 
         Intent intent = getIntent();
+
         String imageUrl = intent.getStringExtra("imageUrl");
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
         String location = intent.getStringExtra("location");
         String price = intent.getStringExtra("pricePerNight");
+        String propertyId = intent.getStringExtra("propertyId");
 
         ImageView imageView = findViewById(R.id.imageImage);
         TextView tvTitle = findViewById(R.id.txtParadiseresort);
@@ -71,17 +73,19 @@ public class HotelDetailsActivity extends AppCompatActivity {
 
     private void createBooking() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        //get property of this house
         Booking booking = new Booking();
-        booking.setPropertyId(getIntent().getStringExtra("propertyId"));
         booking.setGuestId(userId);
         booking.setStartDate(txtCheckInDate.getText().toString());
         booking.setEndDate(txtCheckOutDate.getText().toString());
         booking.setStatus("Pending");
 
-        FirestoreBookingAdapter firestoreBookingAdapter = new FirestoreBookingAdapter();
-        firestoreBookingAdapter.createBooking(booking, new FirestoreBookingAdapter.Callback() {
+        RealtimeDatabaseBookingAdapter firestoreBookingAdapter = new RealtimeDatabaseBookingAdapter();
+        firestoreBookingAdapter.createBooking(booking, new RealtimeDatabaseBookingAdapter.Callback() {
             @Override
-            public void onSuccess() {
+            public void onSuccess(String bookingId) {
+                booking.setBookingId(bookingId);
                 bookingList.add(booking);
                 bookingAdapter.notifyDataSetChanged();
                 Toast.makeText(HotelDetailsActivity.this, "Booking request sent!", Toast.LENGTH_SHORT).show();
