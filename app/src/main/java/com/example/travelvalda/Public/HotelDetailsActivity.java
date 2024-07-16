@@ -1,61 +1,81 @@
 package com.example.travelvalda.Public;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.travelvalda.R;
+import com.squareup.picasso.Picasso;
 
 public class HotelDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail); // Đảm bảo tên layout là chính xác và tồn tại trong thư mục res/layout
+        setContentView(R.layout.activity_detail);
+
+        Intent intent = getIntent();
+
+        // Assuming the image is passed as a URL. If it's a resource ID, adjust accordingly.
+        String imageUrl = intent.getStringExtra("imageUrl");
+        String title = intent.getStringExtra("title");
+        String description = intent.getStringExtra("description");
+        String location = intent.getStringExtra("location");
+        String price = intent.getStringExtra("pricePerNight");
+
+        ImageView imageView = findViewById(R.id.imageImage);
+        TextView tvTitle = findViewById(R.id.txtParadiseresort);
+        TextView tvDescription = findViewById(R.id.txtDescription);
+        TextView tvLocation = findViewById(R.id.txtLocation);
+        TextView tvPricePerNight = findViewById(R.id.txtPrice);
+
+        // Load image using Picasso
+        Picasso.get().load(imageUrl).placeholder(R.drawable.home).into(imageView);
+        tvTitle.setText(title);
+        tvDescription.setText(description);
+        tvLocation.setText(location);
+        tvPricePerNight.setText(price);
     }
+
+
 
     public void onReserveButtonClick(View view) {
         showReservationDialog();
     }
 
     private void showReservationDialog() {
-        // Tạo AlertDialog
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_reserve_confirm, null);
         dialogBuilder.setView(dialogView);
 
-        // Ánh xạ các thành phần trong dialog.xml
 
         Button btnConfirm = dialogView.findViewById(R.id.btnConfirm);
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
 
 
 
-        // Thiết lập các sự kiện cho các nút trong dialog
         final AlertDialog alertDialog = dialogBuilder.create();
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Xử lý khi nhấn nút Xác nhận
-                // Có thể thực hiện các hành động liên quan đến đặt phòng ở đây
-                alertDialog.dismiss(); // Đóng dialog sau khi xử lý
+                alertDialog.dismiss();
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Xử lý khi nhấn nút Hủy
-                alertDialog.dismiss(); // Đóng dialog sau khi xử lý
+                alertDialog.dismiss();
             }
         });
 
-        // Hiển thị dialog
         alertDialog.show();
     }
 }

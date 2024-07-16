@@ -38,29 +38,28 @@ public class DatabaseClient {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // Kiểm tra xem đã có dữ liệu chưa
                 if (appDatabase.propertyDao().getAllProperties().isEmpty()) {
-                    // Thêm dữ liệu cứng cho Property
                     Property property1 = new Property();
                     property1.setOwnerId(1);
-                    property1.setTitle("Sunshine Hotel");
+                    property1.setTitle("Sunshine");
                     property1.setDescription("A nice place to stay in the city.");
                     property1.setPricePerNight(100.0);
                     property1.setLocation("Downtown, City");
-                    property1.setImageUrl("https://thuthuatnhanh.com/wp-content/uploads/2020/01/hinh-anh-mau-biet-thu-2-tang-dep.jpg"); // Đường dẫn ảnh
+                    property1.setImageUrl("https://thuthuatnhanh.com/wp-content/uploads/2020/01/hinh-anh-mau-biet-thu-2-tang-dep.jpg");
 
                     Property property2 = new Property();
                     property2.setOwnerId(2);
-                    property2.setTitle("City Central Hotel");
+                    property2.setTitle("City Central");
                     property2.setDescription("Close to all major attractions.");
                     property2.setPricePerNight(150.0);
                     property2.setLocation("City Center, Downtown");
-                    property2.setImageUrl("https://thuthuatnhanh.com/wp-content/uploads/2020/01/hinh-anh-mau-biet-thu-3-tang-dep-sang-trong-va-hien-dai-scaled.jpg"); // Đường dẫn ảnh
+                    property2.setImageUrl("https://thuthuatnhanh.com/wp-content/uploads/2020/01/hinh-anh-mau-biet-thu-3-tang-dep-sang-trong-va-hien-dai-scaled.jpg");
 
                     appDatabase.propertyDao().insertAll(property1, property2);
                 }
             }
         }).start();
     }
+
 
 }
