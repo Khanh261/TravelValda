@@ -152,6 +152,38 @@ public class BookingDAO {
                     callback.onCallback(false); // Gọi lại callback với kết quả thất bại
                 });
     }
+    public void getRoleId(String uid, RoleCallback roleCallback) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        Query query = databaseReference.child("Users").child(uid).child("roleId"); // Thay đổi đường dẫn "Users" nếu cần thiết
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Integer roleId = snapshot.getValue(Integer.class);
+                    if (roleId != null) {
+                        roleCallback.onCallback(roleId);
+                    } else {
+                        // Xử lý trường hợp không có roleId
+                        roleCallback.onCallback(null);
+                    }
+                } else {
+                    // Xử lý trường hợp không tồn tại dữ liệu
+                    roleCallback.onCallback(null);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Xử lý lỗi ở đây
+                roleCallback.onCallback(null);
+            }
+        });
+    }
+
+    public interface RoleCallback {
+        void onCallback(Integer roleId);
+    }
 
 
     // Interface để xử lý callback
