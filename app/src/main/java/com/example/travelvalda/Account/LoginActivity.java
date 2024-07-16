@@ -17,8 +17,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.travelvalda.Public.HomePageActivity;
-import com.example.travelvalda.Public.HotelDetailsActivity;
+
+import com.example.travelvalda.DashBoard;
 import com.example.travelvalda.R;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onClickLogin(View view) {
-        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+        Intent intent = new Intent(LoginActivity.this, DashBoard.class);
         startActivity(intent);
     }
 }
