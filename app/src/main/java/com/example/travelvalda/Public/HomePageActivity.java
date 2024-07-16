@@ -57,6 +57,7 @@ public class HomePageActivity extends AppCompatActivity {
         }
 
         // Add similar click listeners for other hotel images as needed
+        findViewById(R.id.imageUsers).setOnClickListener(this::onUsersIconClick);
     }
 
     private void initAction() {
@@ -113,8 +114,11 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     public void onUsersIconClick(View view) {
-        Intent intent = new Intent(this, UsersFragment.class);
-        startActivity(intent);
+        UsersFragment usersFragment = new UsersFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameBottomBar, usersFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 

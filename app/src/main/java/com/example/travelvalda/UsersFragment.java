@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelvalda.models.AdapterUsers;
-import com.example.travelvalda.models.User;
 import com.example.travelvalda.models.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,16 +27,17 @@ public class UsersFragment extends Fragment {
     RecyclerView recyclerView;
     AdapterUsers adapterUsers;
     List<Users> userList;
-    public UsersFragment(){}
+
+    public UsersFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_users, container, false);
 
         recyclerView = view.findViewById(R.id.users_recycleView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); // Gắn LayoutManager
 
         userList = new ArrayList<>();
         getUserByRole();
@@ -45,29 +45,26 @@ public class UsersFragment extends Fragment {
         return view;
     }
 
-    private void getUserByRole(){
+    private void getUserByRole() {
         FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-        String currentUserId = fUser.getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userList.clear();
-                for(DataSnapshot ds: snapshot.getChildren()){
+                for (DataSnapshot ds : snapshot.getChildren()) {
                     Users modelUser = ds.getValue(Users.class);
-
-                    if(!ds.getKey().equals(fUser.getUid())){
+                    if (modelUser != null && !ds.getKey().equals(fUser.getUid())) {
                         userList.add(modelUser);
                     }
-
-                    adapterUsers = new AdapterUsers(getActivity(), userList);
-                    recyclerView.setAdapter(adapterUsers);
                 }
+                adapterUsers = new AdapterUsers(getActivity(), userList);
+                recyclerView.setAdapter(adapterUsers);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle possible errors
             }
         });
     }
