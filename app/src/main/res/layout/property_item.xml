@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Property Title"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:layout_marginTop="8dp"
+        tools:text="Sunshine Hotel" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Property Description"
+        android:layout_marginTop="4dp"
+        tools:text="A nice place to stay in the city." />
+
+    <TextView
+        android:id="@+id/tvPricePerNight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price Per Night"
+        android:layout_marginTop="4dp"
+        tools:text="$100.0" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Property Location"
+        android:layout_marginTop="4dp"
+        tools:text="Downtown, City" />
+</LinearLayout>

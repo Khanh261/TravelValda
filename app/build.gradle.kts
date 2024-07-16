@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.com.google.android.material.material)
     implementation(libs.firebase.database)
     implementation(libs.room.common)
+    implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

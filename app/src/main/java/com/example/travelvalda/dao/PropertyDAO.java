@@ -12,18 +12,20 @@ import java.util.List;
 
 @Dao
 public interface PropertyDAO {
+    @Query("SELECT * FROM properties")
+    List<Property> getAllProperties();
 
     @Insert
     void insertProperty(Property property);
+
+    @Insert
+    void insertAll(Property... properties);
 
     @Update
     void updateProperty(Property property);
 
     @Delete
     void deleteProperty(Property property);
-
-    @Query("SELECT * FROM properties")
-    List<Property> getAllProperties();
 
     @Query("SELECT * FROM properties WHERE propertyId = :propertyId")
     Property getPropertyById(int propertyId);
