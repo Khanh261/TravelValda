@@ -1,6 +1,7 @@
 package com.example.travelvalda.models;
 
 public class Users {
+    private String userId;
     private String name;
     private String userName;
     private String phone;
@@ -14,6 +15,16 @@ public class Users {
         this.phone = phone;
         this.email = email;
         this.roleId = roleId;
+    }
+    public Users() {
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     // Getters and Setters
