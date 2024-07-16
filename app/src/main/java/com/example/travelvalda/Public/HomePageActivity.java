@@ -1,6 +1,9 @@
 package com.example.travelvalda.Public;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,7 +25,17 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        ImageView imageProfile = findViewById(R.id.imageProfile);
 
+        // Set OnClickListener for imageProfile
+        imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start ProfileActivity
+                Intent intent = new Intent(HomePageActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
